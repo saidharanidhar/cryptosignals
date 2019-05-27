@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% load bootstrap3 %}
+
+{% block title %}
+Details
+{% endblock %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-sm-12">
+        <h2>{{stats.currency_short_form}} - {{stats.currency_full_form}}</h2>
+    </div>
+</div>
+
+<div class="row">
+
+    <div class="col-sm-4">
+        <img alt="{{stats.name}}"
+             class="img-responsive"
+             src="https://s3.ap-south-1.amazonaws.com/koin-images/{{stats.currency_full_form}}.png"
+        >
+    </div>
+
+    <div class="col-sm-8">
+        <h3>Value: Rs. {{value}}</h3>
+        <h3>Highest bid: Rs. {{stats.highest_bid}}</h3>
+        <h3>Lowest ask: Rs. {{stats.lowest_ask}}</h3>
+        <h3>Last traded price: Rs. {{stats.last_traded_price}}</h3>
+        <h3>Min 24hrs: Rs. {{stats.min_24hrs}}</h3>
+        <h3>Max 24hrs: Rs. {{stats.max_24hrs}}</h3>
+        <h3>Volume last 24hrs: {{stats.vol_24hrs}}</h3>
+        <h3>Total Volume: {{stats.trade_volume}}</h3>
+
+        <form action="" class="form-inline" method="post">
+            {% csrf_token %}
+            <button class="btn {% if subscription %} btn-danger {% else %} btn-success {% endif %}" type="submit">
+                {% if subscription %}
+                Unsubscribe
+                {% else %}
+                subscribe
+                {% endif %}
+            </button>
+        </form>
+    </div>
+
+</div>
+
+{% endblock %}

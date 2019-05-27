@@ -1,0 +1,50 @@
+body{
+padding-top:70px;
+}
+
+.logo {
+    color: #ff5722;
+    font-size: 2rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+}
+
+.sidenav {
+    margin-top:40px;
+    width: 130px;
+    position: fixed;
+    z-index: 1;
+    top: 20px;
+    left: 10px;
+    background: #eee;
+    overflow-x: hidden;
+    padding: 8px 0;
+}
+
+.sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #2196F3;
+    display: block;
+}
+
+.sidenav a:hover {
+    color: #064579;
+}
+
+.subscribed {
+color: green;
+}
+
+.dashboard-card{
+    color: inherit;
+}
+
+.dashboard-card-content{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}

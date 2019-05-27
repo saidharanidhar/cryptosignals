@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load bootstrap3 %}
+
+{% block title %}
+Dashboard
+{% endblock %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-sm-12">
+        <h2>Hello, {{request.user.first_name}} {{request.user.last_name}}</h2>
+    </div>
+</div>
+
+<div class="row">
+    {% for currency in currencies %}
+    <a class="dashboard-card" href="{% url 'details' coin=currency.id %}">
+        <div class="col-sm-2 col-md-2">
+            <div class="thumbnail">
+                <div class="dashboard-card-content row">
+                    <div class="col-xs-4">
+                        <img alt="{{currency.name}}"
+                             class="img-responsive"
+                             src="https://s3.ap-south-1.amazonaws.com/koin-images/{{currency.name}}.png"
+                        >
+                    </div>
+                    <div class="col-xs-8">
+                        <h4>{{currency.id}}</h4>
+                        <h5>Rs. {{currency.value}}</h5>
+                        {% if currency.subscription %}
+                        <h6 class="subscribed">subscribed</h6>
+                        {% else %}
+                        <h6>Not subscribed</h6>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+    {% endfor %}
+
+</div>
+
+{% endblock %}
