@@ -21,7 +21,7 @@ class SettingsForm(forms.ModelForm):
     """Notification settings Form"""
     token = forms.CharField(max_length=255, required=False)
     channel = forms.CharField(max_length=32, required=False)
-    subscription = forms.BooleanField()
+    subscription = forms.BooleanField(required=False)
 
     class Meta:
         model = get_user_model()
